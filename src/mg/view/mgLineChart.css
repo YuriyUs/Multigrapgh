@@ -1,0 +1,42 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 25, 2015, 6:01:07 PM
+    Author     : xx
+*/
+
+/*******************************************************************************
+ *                                                                             *
+ * LineChart                                                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.chart-line-symbol {
+    -fx-background-color: CHART_COLOR_1, white;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 1px;
+    -fx-padding: 1px;
+}
+.chart-series-line {
+    -fx-stroke: CHART_COLOR_1;
+    -fx-stroke-width: 2px;
+}
+.default-color0.chart-line-symbol { -fx-background-color: CHART_COLOR_1, white; }
+.default-color1.chart-line-symbol { -fx-background-color: CHART_COLOR_2, white; }
+.default-color2.chart-line-symbol { -fx-background-color: CHART_COLOR_3, white; }
+.default-color3.chart-line-symbol { -fx-background-color: CHART_COLOR_4, white; }
+.default-color4.chart-line-symbol { -fx-background-color: CHART_COLOR_5, white; }
+.default-color5.chart-line-symbol { -fx-background-color: CHART_COLOR_6, white; }
+.default-color6.chart-line-symbol { -fx-background-color: CHART_COLOR_7, white; }
+.default-color7.chart-line-symbol { -fx-background-color: CHART_COLOR_8, white; }
+.default-color0.chart-series-line { -fx-stroke: CHART_COLOR_1; }
+.default-color1.chart-series-line { -fx-stroke: CHART_COLOR_2; }
+.default-color2.chart-series-line { -fx-stroke: CHART_COLOR_3; }
+.default-color3.chart-series-line { -fx-stroke: CHART_COLOR_4; }
+.default-color4.chart-series-line { -fx-stroke: CHART_COLOR_5; }
+.default-color5.chart-series-line { -fx-stroke: CHART_COLOR_6; }
+.default-color6.chart-series-line { -fx-stroke: CHART_COLOR_7; }
+.default-color7.chart-series-line { -fx-stroke: CHART_COLOR_8; }
