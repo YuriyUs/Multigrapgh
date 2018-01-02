@@ -149,6 +149,7 @@ public class MainApp extends Application {
             
             ctrlGraph = (GraphController)loader.getController();
             ctrlGraph.setMainApp(this);
+            //ctrlGraph.setAnchorPane(lineGraph);
 
             // Set graph overview into the center of root layout.
             rootLayout.setCenter(lineGraph);

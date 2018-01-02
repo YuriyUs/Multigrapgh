@@ -6,19 +6,22 @@
 package mg.view;
 
 
-import java.io.IOException;
+import java.net.URL;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import static javafx.scene.input.DataFormat.URL;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.converter.DateTimeStringConverter;
 import mg.MainApp;
 import mg.model.Setup;
 import mg.utils.DataFile;
+import mg.utils.MGLineChart;
 
 
 /**
@@ -26,35 +29,38 @@ import mg.utils.DataFile;
  *
  * @author xx
  */
-public class GraphController {
+public class GraphController implements Initializable {
     
    
+   
     @FXML
-    private LineChart<Long, Double> lineChart;
-    @FXML
-    private NumberAxis yAxis;
-    @FXML
-    private NumberAxis xAxis;
+    private AnchorPane AnchorPane;
     
+    private NumberAxis yAxis = new NumberAxis();
+    //@FXML
+    private NumberAxis xAxis = new NumberAxis();
+     //@FXML
+    private MGLineChart<Long, Double> lineChart = new MGLineChart(xAxis, yAxis);
     
+    //private AnchorPane anchorPane; 
     
-    //xAxix.setDateFormatOverride(new SimpleDateFormat("HH:mm:ss"));
+   
     private Object stage;
     
     private MainApp mainApp;
-    private Setup setup;
-    
-    // storage to keep grapgh information before show on the screen
-    //List<LineChart.Series<Long, Double>> fragments = new ArrayList<>(); 
+    //private Setup setup;
+ 
     
     DataFile graphData = new DataFile();
    
     // max/min X and Y are calculated during loading data in to series on the line chart.
     long   maxX=0, minX=0;
     double maxY=0, minY=0;
-    boolean minmaxSet=false;
+    boolean isMinMaxSet=false;
     
-    //xAxis.setLowerBound(fromString("2015.09.01 00:00"));
+    
+    
+    
     
     /**
      * Scroll graph to the left
@@ -82,6 +88,11 @@ public class GraphController {
         this.mainApp = mainApp;
         graphData.setMainApp(mainApp);
     }
+    
+    //public void setAnchorPane(AnchorPane ap) {
+    //    anchorPane = ap;
+    //}
+    
     
     /**
      * Initializes the controller class.
@@ -187,10 +198,10 @@ public class GraphController {
             //System.out.println("-->2 == SCV[0]="+ fromStringToMs(csv[0])+" x="+ x);
             
             // setup initial values for min and max
-            if (!minmaxSet){
+            if (!isMinMaxSet){
                 maxX = minX = x;
                 maxY = minY = y;
-                minmaxSet = true;
+                isMinMaxSet = true;
             } else {   // looking for min and max values on the graph to set up boundaries
                 if (x > maxX)  maxX=x; 
                 else if (x < minX) minX=x;
@@ -231,10 +242,12 @@ public class GraphController {
         System.out.println("GraphController addGraphData finished");
     }
  
-   @FXML
-    public void initialize() {
+   @Override
+    public void initialize(URL location, ResourceBundle bundle) {
         // TODO
         System.out.println("GrafController Initialize started.");
+        
+        AnchorPane.getChildren().addAll( lineChart); //xAxis,yAxis,
         xAxis.setAutoRanging(false);
         yAxis.setAutoRanging(false);
         //xAxis.setLowerBound(graphData.getLowerX());

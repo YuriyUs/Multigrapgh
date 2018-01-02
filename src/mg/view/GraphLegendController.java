@@ -57,7 +57,7 @@ public class GraphLegendController{
         boolean okClicked = mainApp.showSetupEditDialog(tempGraph);
         System.out.println("******** Dialog opened "  );
         if (okClicked) {
-            mainApp.ctrlGraph.minmaxSet = false; // this will reset boundaries values and cause recalculating.
+            mainApp.ctrlGraph.isMinMaxSet = false; // this will reset boundaries values and cause recalculating.
             tempGraph.setLegendNum(mainApp.getSetupData().size()+1); // Set proper index on new line on legend.
             //System.out.println("Next Element to add = " + mainApp.getSetupData().size() );
             mainApp.getSetupData().add(tempGraph);
@@ -73,7 +73,7 @@ public class GraphLegendController{
         if (selectedSetup != null) {
             if (mainApp.showSetupEditDialog(selectedSetup)) {
                 // Clicked OK
-                mainApp.ctrlGraph.minmaxSet = false; // this will reset boundaries values and cause recalculating.
+                mainApp.ctrlGraph.isMinMaxSet = false; // this will reset boundaries values and cause recalculating.
             };
                        
         } else {
